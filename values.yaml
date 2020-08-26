@@ -182,7 +182,7 @@ master:
     # storageClass: "ssd"
   readinessProbe:
     httpGet:
-      path: /_cluster/health?local=true
+      path: /_cluster/health?local=false
       port: 9200
     initialDelaySeconds: 5
   antiAffinity: "soft"
@@ -229,14 +229,14 @@ data:
   heapSize: "1536m"
   # additionalJavaOpts: "-XX:MaxRAM=1536m"
   persistence:
-    enabled: true
+    enabled: false
     accessMode: ReadWriteOnce
     name: data
     size: "30Gi"
     # storageClass: "ssd"
   readinessProbe:
     httpGet:
-      path: /_cluster/health?local=true
+      path: /_cluster/health?local=false
       port: 9200
     initialDelaySeconds: 5
   terminationGracePeriodSeconds: 3600
